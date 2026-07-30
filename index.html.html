@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Presentación - Granja Potrerillo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .icon-shadow { box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1); }
+        .interactive-element { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .interactive-element:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.15); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .icon-animate { opacity: 0; animation: fadeIn 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-200">
+
+    <div class="w-full min-h-screen flex items-center justify-center md:p-4" x-data="{ productsModal: false, scheduleModal: false, qrModal: false }">
+        <div class="w-full h-screen overflow-y-auto md:h-auto md:max-w-sm bg-slate-50 md:shadow-2xl md:rounded-2xl md:overflow-hidden fade-in">
+            
+            <div class="relative h-44 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/bYK8kt9N/Whats-App-Image-2026-07-29-at-10-19-44-PM.jpg');">
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            </div>
+            
+            <div class="flex justify-center -mt-20 z-10 relative">
+                <div class="relative bg-white rounded-full p-1 shadow-lg">
+                    <img class="w-40 h-40 rounded-full border-4 border-white bg-white object-cover" src="https://i.postimg.cc/GmGcLw9X/Whats-App-Image-2026-07-30-at-1-35-40-AM.jpg" alt="Granja Potrerillo">
+                </div>
+            </div>
+            
+            <div class="text-center px-6 pt-4 pb-2">
+                <h2 class="text-3xl font-bold text-gray-800">Granja Potrerillo</h2>
+                <p class="text-gray-500 font-medium">Hecho con alma campesina</p>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-4 px-6 pt-6 pb-4">
+                <a href="https://www.facebook.com/share/1EXzJNFM5F/?mibextid=wwXIfr" target="_blank" class="flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-brands fa-facebook-f fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Facebook</p>
+                </a>
+                <div @click="scheduleModal = true" class="cursor-pointer flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-solid fa-clock fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Horario</p>
+                </div>
+                <div @click="productsModal = true" class="cursor-pointer flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-solid fa-basket-shopping fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Productos</p>
+                </div>
+                <a href="tel:+573195814019" class="flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-solid fa-phone fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Llamar</p>
+                </a>
+                <a href="https://www.instagram.com/namendez2022?igsh=eHNkemYzYTU4OGp4&utm_source=qr" target="_blank" class="flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.5s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-brands fa-instagram fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Instagram</p>
+                </a>
+                <a href="https://wa.me/573195814019" target="_blank" class="flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.6s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-brands fa-whatsapp fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">WhatsApp</p>
+                </a>
+                <a href="mailto:namendez2018@gmail.com" class="flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.7s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-solid fa-envelope fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Correo</p>
+                </a>
+                <a href="https://maps.app.goo.gl/PVUT1jhoPBoy58fWA" target="_blank" class="flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.8s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-solid fa-location-dot fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Ubicación</p>
+                </a>
+                <div class="flex flex-col items-center text-center group interactive-element icon-animate" style="animation-delay: 0.9s;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 text-white flex items-center justify-center icon-shadow"><i class="fa-solid fa-mobile-screen-button fa-2x"></i></div>
+                    <p class="text-sm font-medium text-gray-600 mt-2">Instalar</p>
+                </div>
+            </div>
+
+            <div class="px-6 py-4 space-y-4"> 
+                <a href="https://wa.me/573195814019" target="_blank" class="block w-full bg-gradient-to-r from-emerald-700 to-green-800 text-white font-bold py-3 rounded-lg text-center interactive-element">Hacer Pedido</a> 
+                <div class="flex gap-4">
+                    <a href="data:text/vcard;base64,BEGIN:VCARD\nVERSION:3.0\nFN:Granja Potrerillo\nTEL;TYPE=CELL:3195814019\nEND:VCARD" download="contacto_granja.vcf" class="flex-1 bg-gray-200 text-gray-800 font-bold py-2 rounded-lg text-center interactive-element block">Guardar Contacto</a>
+                    <button @click="qrModal = true" class="w-1/3 bg-gray-200 text-gray-800 font-bold py-2 rounded-lg text-center interactive-element">QR</button>
+                </div>
+            </div>
+
+            <div x-show="qrModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" style="display: none;">
+                <div @click.away="qrModal = false" class="bg-white rounded-2xl p-6 w-full max-w-xs text-center shadow-2xl">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Escanea el QR</h3>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://granja-potrerillo.web.app" alt="QR Code" class="w-full h-auto mx-auto border-4 border-emerald-600 rounded-lg">
+                    <button @click="qrModal = false" class="mt-6 bg-emerald-600 text-white w-full py-2 rounded-lg font-bold">Cerrar</button>
+                </div>
+            </div>
+
+            <div x-show="productsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" style="display: none;">
+                <div @click.away="productsModal = false" class="bg-slate-50 rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col border-2 border-emerald-500 overflow-hidden">
+                    <div class="bg-emerald-600 text-white p-4 text-center"><h3 class="text-2xl font-bold">Nuestros Productos</h3></div>
+                    <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm">
+                        <p>En Granja Potrerillo cultivamos y elaboramos productos que reflejan el compromiso con la calidad, la tradición y el respeto por el campo.</p>
+                        <ul class="space-y-6">
+                            <li>
+                                <strong class="block text-emerald-800 text-base">Pollos Semi Criollos:</strong> 
+                                <img src="https://i.postimg.cc/wxkQZS0w/Whats-App-Image-2026-07-30-at-12-28-56-AM.jpg" alt="Pollos Semi Criollos" class="w-full aspect-square object-cover rounded-lg my-2 border border-emerald-200">
+                                Criados con un manejo responsable y una alimentación adecuada que garantiza una carne de excelente calidad, sabor y textura.
+                                <a href="https://wa.me/573195814019?text=Hola,%20deseo%20comprar%20un%20pollo" target="_blank" class="mt-3 block w-full bg-emerald-600 text-white font-bold py-2 rounded-lg text-center text-sm hover:bg-emerald-700 transition">Comprar</a>
+                            </li>
+                            <li>
+                                <strong class="block text-emerald-800 text-base">Chocolate Artesanal:</strong> 
+                                <img src="https://i.postimg.cc/rFNyS9FX/Whats-App-Image-2026-07-30-at-12-38-25-AM.jpg" alt="Chocolate Artesanal" class="w-full aspect-square object-cover rounded-lg my-2 border border-emerald-200">
+                                Elaborado con cacao cuidadosamente seleccionado y procesos artesanales.
+                                <a href="https://wa.me/573195814019?text=Hola,%20deseo%20adquirir%20chocolate%20artesanal" target="_blank" class="mt-3 block w-full bg-emerald-600 text-white font-bold py-2 rounded-lg text-center text-sm hover:bg-emerald-700 transition">Comprar</a>
+                            </li>
+                            <li>
+                                <strong class="block text-emerald-800 text-base">Mermeladas Artesanales:</strong> 
+                                <img src="https://i.postimg.cc/90q6Lcjr/Whats-App-Image-2026-07-30-at-1-08-57-AM.jpg" alt="Mermeladas Artesanales" class="w-full aspect-square object-cover rounded-lg my-2 border border-emerald-200">
+                                Elaboradas con frutas seleccionadas y recetas tradicionales.
+                                <a href="https://wa.me/573195814019?text=Hola,%20deseo%20adquirir%20mermeladas" target="_blank" class="mt-3 block w-full bg-emerald-600 text-white font-bold py-2 rounded-lg text-center text-sm hover:bg-emerald-700 transition">Comprar</a>
+                            </li>
+                            <li>
+                                <strong class="block text-emerald-800 text-base">Pulpa de Guanábana:</strong> 
+                                <img src="https://i.postimg.cc/qvf3bw2q/Whats-App-Image-2026-07-30-at-1-17-33-AM.jpg" alt="Pulpa de Guanábana" class="w-full aspect-square object-cover rounded-lg my-2 border border-emerald-200">
+                                Pulpa 100 % natural, procesada para conservar su sabor y propiedades.
+                                <a href="https://wa.me/573195814019?text=Hola,%20deseo%20adquirir%20pulpa%20de%20guanábana" target="_blank" class="mt-3 block w-full bg-emerald-600 text-white font-bold py-2 rounded-lg text-center text-sm hover:bg-emerald-700 transition">Comprar</a>
+                            </li>
+                            <li>
+                                <strong class="block text-emerald-800 text-base">Miel de Abejas:</strong> 
+                                <img src="https://i.postimg.cc/tT98G8V3/Whats-App-Image-2026-07-30-at-1-26-10-AM.jpg" alt="Miel de Abejas" class="w-full aspect-square object-cover rounded-lg my-2 border border-emerald-200">
+                                Miel pura obtenida mediante prácticas responsables.
+                                <a href="https://wa.me/573195814019?text=Hola,%20deseo%20adquirir%20miel%20de%20abejas" target="_blank" class="mt-3 block w-full bg-emerald-600 text-white font-bold py-2 rounded-lg text-center text-sm hover:bg-emerald-700 transition">Comprar</a>
+                            </li>
+                            <li>
+                                <strong class="block text-emerald-800 text-base">Huevos Criollos:</strong> 
+                                <img src="https://i.postimg.cc/SQ2HFLnv/Whats-App-Image-2026-07-30-at-1-14-58-AM.jpg" alt="Huevos Criollos" class="w-full aspect-square object-cover rounded-lg my-2 border border-emerald-200">
+                                Huevos frescos provenientes de gallinas criadas en ambiente natural.
+                                <a href="https://wa.me/573195814019?text=Hola,%20deseo%20adquirir%20huevos%20criollos" target="_blank" class="mt-3 block w-full bg-emerald-600 text-white font-bold py-2 rounded-lg text-center text-sm hover:bg-emerald-700 transition">Comprar</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-4 border-t"><button @click="productsModal = false" class="bg-emerald-600 text-white w-full py-2 rounded-lg font-bold">Cerrar</button></div>
+                </div>
+            </div>
+
+            <div x-show="scheduleModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" style="display: none;">
+                <div @click.away="scheduleModal = false" class="bg-white rounded-2xl p-6 w-full max-w-sm text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Horario de Atención</h3>
+                    <p class="text-emerald-700 font-bold text-lg">¡Siempre Abierto!</p>
+                    <button @click="scheduleModal = false" class="mt-4 bg-emerald-600 text-white px-6 py-2 rounded-lg">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
